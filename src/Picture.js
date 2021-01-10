@@ -11,6 +11,7 @@ function Picture(props) {
                 </div>
             </div>    
         </div>   
+        
     ) 
 }
  
