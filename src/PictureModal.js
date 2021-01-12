@@ -1,30 +1,38 @@
 import React, { useEffect } from "react";
 
-function PictureModal(props){
 
-    const onEscape = ({key}) => {
-        if (key === "Escape"){
-            props.onClose()
-        }
-    }
+function PictureModal(props) {
+  const closeModal = () => {
+    document.getElementById("main").setAttribute("data-aos", "zoom-out")
+    document.getElementById("main").setAttribute("data-aos-duration", "500")
+    setTimeout(() => {
+      props.onClose()
+    }, 500);
+  }
 
-    useEffect(() => {
-        document.addEventListener("keyup", onEscape)
-        return () => document.removeEventListener("keyup", onEscape)
-    }, )
+  const onEscape = ({ key }) => {
+    if (key === "Escape")
+      closeModal()
+  }
 
-    return (        
-        <div className="flex justify-center items-center fixed z-10 inset-0 overflow-y-auto">
-            <div className="text-center p-10">
-                <div className="fixed inset-0 transition-opacity" onClick={props.onClose} aria-hidden="true">
-                    <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
-                </div>
-                <div className="flex overflow-hidden rounded-xl shadow-xl transform transition-all max-w-4xl" srole="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                    <img alt="Piture" src={props.url}/>                    
-                </div>
-            </div>
+  useEffect(() => {
+    document.addEventListener("keyup", onEscape)
+    return () => document.removeEventListener("keyup", onEscape)
+  })
+
+
+  return (
+    <div className="flex justify-center items-center fixed z-10 inset-0 overflow-y-auto" id="main">
+      <div className="text-center p-10">
+        <div data-aos="zoom-out" data-aos-duration="700" className="fixed inset-0" onClick={closeModal} aria-hidden="true">
+          <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
         </div>
-    )
+        <div data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="700" className="overflow-hidden rounded-xl shadow-xl max-w-4xl transform" aria-modal="true" aria-labelledby="modal-headline">
+          <img alt="Piture" src={props.url} />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default PictureModal;
