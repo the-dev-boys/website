@@ -2,3 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+div.picture-card {
+  perspective: 1000px;
+}
+
+div.picture-inner {
+  transition: transform 1.2s;
+  transform-style: preserve-3d;
+}
+
+div.picture-front , div.picture-back  {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari */
+}
+
+
+.picture-back {
+  background-color: #bd876d;
+  transform: rotateY(180deg);
+}

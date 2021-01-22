@@ -28,7 +28,7 @@ function PictureModal(props) {
           <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
         </div>
         <div data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="700" className="overflow-hidden rounded-xl shadow-xl max-w-4xl transform" aria-modal="true" aria-labelledby="modal-headline">
-          <img alt="Piture" src={props.url} />
+          <img alt="Modal" src={props.url} />
         </div>
       </div>
     </div>

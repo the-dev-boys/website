@@ -4,39 +4,47 @@ import PictureModal from "./PictureModal";
 
 const photos = [
   {
-    url: '/image/image2.jpg',
+    url: 'https://picsum.photos/1457/1000',
     label: '31 December 2020. Happy new year Boys!',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
   {
-    url: '/image/image3.jpg',
+    url: 'https://picsum.photos/1457/1000',
     label: '4 April 2020. Stay safe boys',
+    description: 'blabla',
   },
   {
-    url: '/image/image1.jpg',
+    url: 'https://picsum.photos/1457/1000',
     label: '2019. Hello boys',
+    description: 'blabla',
   },
   {
-    url: '/image/image2.jpg',
+    url: 'https://picsum.photos/1457/1000',
     label: '31 December 2020. Happy new year Boys!',
+    description: 'blabla',
   },
   {
-    url: '/image/image3.jpg',
+    url: 'https://picsum.photos/1457/1000',
     label: '4 April 2020. Stay safe boys',
+    description: 'https://picsum.photos/1457/1000',
   },
   {
-    url: '/image/image1.jpg',
+    url: 'https://picsum.photos/1457/1000',
     label: '2019. Hello boys',
+    description: 'blabla',
   },
   {
-    url: '/image/image2.jpg',
+    url: 'https://picsum.photos/1457/1000',
     label: '31 December 2020. Happy new year Boys!',
+    description: 'blabla',
   },
   {
-    url: '/image/image3.jpg',
+    url: 'https://picsum.photos/1457/1000',
     label: '4 April 2020. Stay safe boys',
+    description: 'blabla',
   },
   {
-    url: '/image/image1.jpg',
+    url: 'https://picsum.photos/1457/1000',
     label: '2019. Hello boys',
     description: 'blabla',
   },
@@ -45,13 +53,14 @@ const photos = [
 
 function Content() {
   const [selectedPicture, setSelectedPicture] = useState(false)
+  
 
   return (
-    <main className="mt-28 p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <main className="mt-28 p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12">
       {photos.map((photo, i) => {
         return (
-          <div className='w-auto place-self-center' key={i}>
-            <Picture url={photo.url} label={photo.label} setSelectedPicture={setSelectedPicture} />
+          <div className='h-full place-self-center' key={i}>
+            <Picture url={photo.url} label={photo.label} description={photo.description} setSelectedPicture={setSelectedPicture} />
           </div>
         )
       })}

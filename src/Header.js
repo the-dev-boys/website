@@ -3,7 +3,7 @@ import { default as logo } from './logo.svg';
 
 function Navbar() {
   return (
-    <nav className='py-10 flex h-16 items-center justify-center border-b-2 shadow-md fixed w-full z-10 bg-white bg-opacity-75 top-0'>
+    <nav className='py-10 flex h-16 items-center justify-center border-b-2 shadow-md fixed w-full z-10 bg-white dark:bg-red-900 bg-opacity-75 top-0'>
       <img alt="logo" src={logo} className='mt-2' width='170' heigth='auto'/>
     </nav>      
   )

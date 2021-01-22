@@ -7,8 +7,10 @@ function App() {
 
   return (
     <Fragment>
-      <Navbar />
-      <Content />
+      <div className="dark">
+        <Navbar />
+        <Content />
+      </div>
     </Fragment>
   );
 }
