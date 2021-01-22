@@ -17,7 +17,6 @@ div.picture-front , div.picture-back  {
   -webkit-backface-visibility: hidden; /* Safari */
 }
 
-
 .picture-back {
   background-color: #bd876d;
   transform: rotateY(180deg);
