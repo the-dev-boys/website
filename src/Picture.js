@@ -17,7 +17,7 @@ function Picture(props) {
 				<div className={"picture-front w-full h-full" + (rotatedPicture ? " pointer-events-none	" : "")} >
 					<div data-aos-delay={Math.floor(Math.random() * 10) * 50} data-aos="zoom-in" data-aos-once="true">
 						<div className="fixed p-1 mt-1 mr-1 right-0 bg-gray-100 rounded-full shadow-lg">
-							<LoopIcon className="hover:animate-spin" onClick={() => setRotatedPicture(!rotatedPicture)} />
+							<LoopIcon className="cursor-pointer hover:animate-spin" onClick={() => setRotatedPicture(!rotatedPicture)} />
 						</div>
 						<img alt={props.label} className='w-full h-full' src={props.url} onClick={() => props.setSelectedPicture({ url: props.url, label: props.label })} />
 						<div className='h-14'>
@@ -27,7 +27,7 @@ function Picture(props) {
 				</div>
 				<div className="picture-back shadow-lg opacity-95 w-full h-full top-0 absolute grid place-content-center">
 					<div className="fixed p-1 mt-1 mr-1 right-0 bg-gray-100 rounded-full shadow-lg">
-						<LoopIcon className="hover:animate-spin" onClick={() => setRotatedPicture(!rotatedPicture)} />
+						<LoopIcon className="cursor-pointer hover:animate-spin" onClick={() => setRotatedPicture(!rotatedPicture)} />
 					</div>
 					<p className="font-poppins text-xl text-center p-6">"{props.description}"</p>
 				</div>
