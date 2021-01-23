@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 
 function PictureModal(props) {
   const closeModal = () => {
-    document.getElementById("main").setAttribute("data-aos", "zoom-out")
-    document.getElementById("main").setAttribute("data-aos-duration", "500")
+    document.getElementById("mainModal").setAttribute("data-aos", "zoom-out")
+    document.getElementById("mainModal").setAttribute("data-aos-duration", "500")
     setTimeout(() => {
       props.onClose()
     }, 500);
@@ -22,7 +22,7 @@ function PictureModal(props) {
 
 
   return (
-    <div className="flex justify-center items-center fixed z-10 inset-0 overflow-y-auto" id="main">
+    <div className="flex justify-center items-center fixed z-10 inset-0 overflow-y-auto translucent" id="mainModal">
       <div className="text-center p-10">
         <div data-aos="zoom-out" data-aos-duration="700" className="fixed inset-0" onClick={closeModal} aria-hidden="true">
           <div className="absolute inset-0 bg-gray-500 opacity-75"></div>

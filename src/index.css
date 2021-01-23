@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 div.picture-card {
-  perspective: 1000px;
+  perspective: 80em;
 }
 
 div.picture-inner {
@@ -20,4 +20,9 @@ div.picture-front , div.picture-back  {
 .picture-back {
   background-color: #bd876d;
   transform: rotateY(180deg);
+}
+
+.translucent {
+  --tw-bg-opacity: .5 !important;
+  backdrop-filter: blur(10px);
 }
