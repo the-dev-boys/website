@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Picture from './Picture';
+import Loader from './Loader';
 import PictureModal from "./PictureModal";
 import axios from 'axios';
 
@@ -12,16 +13,25 @@ function Content() {
 
   useEffect(() => {
     axios.get(apiUrl).then(response => {
-      setIsLoading(false);
-      setPictures(response.data.objects)
+      setTimeout(() => {
+        setIsLoading(false);
+        setPictures(response.data.objects)
+      }, 2000);
     })
   }, []);
 
-  if (isLoading) {
-    return (<div className="w-full h-full grid font-poppins text-4xl content-center place-content-center"> <p>Fuck off </p> </div>);
+  if(isLoading){
+    return (
+      <Fragment>
+        <main className="absolute h-screen w-screen top-0">
+          <Loader /> 
+        </main>
+        
+      </Fragment>  
+    );
   }
 
-  if (selectedPicture)
+  if(selectedPicture)
     document.body.classList.add('overflow-y-hidden')
   else
     document.body.classList.remove('overflow-y-hidden')
@@ -29,12 +39,12 @@ function Content() {
   return (
     <main className="p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12">
       {pictures.map((photo, i) => {
-        return (
-          <div className='h-full place-self-center' key={i}>
-            <Picture date={photo.metadata.date} url={photo.metadata.image.url} label={photo.metadata.title} description={photo.metadata.description} setSelectedPicture={setSelectedPicture} />
-          </div>
-        )
-      })}
+          return (
+            <div className='h-full place-self-center' key={i}>
+              <Picture date={photo.metadata.date} url={photo.metadata.image.url} label={photo.metadata.title} description={photo.metadata.description} setSelectedPicture={setSelectedPicture} />
+            </div>
+          )
+        })}      
       {selectedPicture && <PictureModal url={selectedPicture.url} onClose={() => setSelectedPicture(false)} />}
     </main>
   )
