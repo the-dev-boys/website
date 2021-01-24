@@ -1,70 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Picture from './Picture';
 import PictureModal from "./PictureModal";
+import axios from 'axios';
 
-const photos = [
-  {
-    url: 'https://picsum.photos/1457/1000',
-    label: '31 December 2020. Happy new year Boys!',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  },
-  {
-    url: 'https://picsum.photos/1457/1000',
-    label: '4 April 2020. Stay safe boys',
-    description: 'blabla',
-  },
-  {
-    url: 'https://picsum.photos/1457/1000',
-    label: '2019. Hello boys',
-    description: 'blabla',
-  },
-  {
-    url: 'https://picsum.photos/1457/1000',
-    label: '31 December 2020. Happy new year Boys!',
-    description: 'blabla',
-  },
-  {
-    url: 'https://picsum.photos/1457/1000',
-    label: '4 April 2020. Stay safe boys',
-    description: 'https://picsum.photos/1457/1000',
-  },
-  {
-    url: 'https://picsum.photos/1457/1000',
-    label: '2019. Hello boys',
-    description: 'blabla',
-  },
-  {
-    url: 'https://picsum.photos/1457/1000',
-    label: '31 December 2020. Happy new year Boys!',
-    description: 'blabla',
-  },
-  {
-    url: 'https://picsum.photos/1457/1000',
-    label: '4 April 2020. Stay safe boys',
-    description: 'blabla',
-  },
-  {
-    url: 'https://picsum.photos/1457/1000',
-    label: '2019. Hello boys',
-    description: 'blabla',
-  },
-]
-
+const apiUrl = 'https://api.cosmicjs.com/v1/meandtheboys-production/objects?pretty=true&hide_metafields=true&type=images&read_key=1pQJxA3Ac0l3jiWdZug6wAQ0Uz1OVWwi5i4TkjZ8OfgjQrDpnp&limit=20&props=slug,metadata,';
 
 function Content() {
   const [selectedPicture, setSelectedPicture] = useState(false)
-  
+  const [isLoading, setIsLoading] = useState(true)
+  const [pictures, setPictures] = useState([])
+
+  useEffect(() => {
+    axios.get(apiUrl).then(response => {
+      setTimeout(() => {
+        setIsLoading(false);
+        setPictures(response.data.objects)
+      }, 1000);
+    })
+  }, []);
+
+  if(isLoading){
+    return (<div className="w-full h-full grid font-poppins text-4xl place-content-center"> <p>Fuck off </p> </div>);
+  }
 
   return (
     <main className="p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12">
-      {photos.map((photo, i) => {
-        return (
-          <div className='h-full place-self-center' key={i}>
-            <Picture url={photo.url} label={photo.label} description={photo.description} setSelectedPicture={setSelectedPicture} />
-          </div>
-        )
-      })}
-
+      {pictures.map((photo, i) => {
+          return (
+            <div className='h-full place-self-center' key={i}>
+              <Picture url={photo.metadata.image.url} label={photo.metadata.title} description={photo.metadata.description} setSelectedPicture={setSelectedPicture} />
+            </div>
+          )
+        })}      
       {selectedPicture && <PictureModal url={selectedPicture.url} onClose={() => setSelectedPicture(false)} />}
     </main>
   )

@@ -24,5 +24,17 @@ div.picture-front , div.picture-back  {
 
 .translucent {
   --tw-bg-opacity: .5 !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
+}
+
+.dark .dark\:darkmode-bg {
+  @apply bg-gray-900;
+}
+
+.dark .dark\:darkmode-picture {
+  @apply bg-gray-600;
+} 
+
+.min-full-screen {
+  min-height: 100vh;
 }

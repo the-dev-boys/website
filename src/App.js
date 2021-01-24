@@ -14,7 +14,7 @@ function App() {
 
   return (
     <Fragment>
-        <div className="transition-colors duration-300 dark:bg-gray-800md:pb-16 lg:pb-24 pt-24 dark:bg-gray-800">
+        <div className="transition-colors min-full-screen duration-300 dark:darkmode-bg md:pb-16 lg:pb-24 pt-24">
           <Navbar />
           <Content />
           <DarkModeButton enableDarkMode={enableDarkMode} onClick={() => { setEnableDarkMode(!enableDarkMode) }} />
