@@ -12,26 +12,29 @@ function Content() {
 
   useEffect(() => {
     axios.get(apiUrl).then(response => {
-      setTimeout(() => {
-        setIsLoading(false);
-        setPictures(response.data.objects)
-      }, 1000);
+      setIsLoading(false);
+      setPictures(response.data.objects)
     })
   }, []);
 
-  if(isLoading){
-    return (<div className="w-full h-full grid font-poppins text-4xl place-content-center"> <p>Fuck off </p> </div>);
+  if (isLoading) {
+    return (<div className="w-full h-full grid font-poppins text-4xl content-center place-content-center"> <p>Fuck off </p> </div>);
   }
+
+  if (selectedPicture)
+    document.body.classList.add('overflow-y-hidden')
+  else
+    document.body.classList.remove('overflow-y-hidden')
 
   return (
     <main className="p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12">
       {pictures.map((photo, i) => {
-          return (
-            <div className='h-full place-self-center' key={i}>
-              <Picture url={photo.metadata.image.url} label={photo.metadata.title} description={photo.metadata.description} setSelectedPicture={setSelectedPicture} />
-            </div>
-          )
-        })}      
+        return (
+          <div className='h-full place-self-center' key={i}>
+            <Picture date={photo.metadata.date} url={photo.metadata.image.url} label={photo.metadata.title} description={photo.metadata.description} setSelectedPicture={setSelectedPicture} />
+          </div>
+        )
+      })}
       {selectedPicture && <PictureModal url={selectedPicture.url} onClose={() => setSelectedPicture(false)} />}
     </main>
   )

@@ -22,13 +22,13 @@ function PictureModal(props) {
 
 
   return (
-    <div className="flex justify-center items-center fixed z-10 inset-0 overflow-y-auto translucent" id="mainModal">
-      <div className="text-center p-10">
+    <div className="flex justify-center items-center fixed z-40 inset-0 overflow-y-auto translucent overflow-hidden" id="mainModal">
+      <div className="text-center md:p-10">
         <div data-aos="zoom-out" data-aos-duration="700" className="fixed inset-0" onClick={closeModal} aria-hidden="true">
           <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
         </div>
-        <div data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="700" className="overflow-hidden rounded-xl shadow-xl max-w-4xl transform" aria-modal="true" aria-labelledby="modal-headline">
-          <img alt="Modal" src={props.url} />
+        <div data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="700" className="px-10 pointer-events-none mx-auto overflow-hidden max-w-7xl sm:w-2/3 transform" aria-modal="true" aria-labelledby="modal-headline">
+          <img alt="Modal" src={props.url} className="rounded-xl shadow-2xl pointer-events-auto" />
         </div>
       </div>
     </div>
