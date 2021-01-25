@@ -40,7 +40,7 @@ function Content() {
       {pictures.map((photo, i) => {
           return (
             <div className='h-full place-self-center' key={i}>
-              <Picture date={photo.metadata.date} url={photo.metadata.image.url} label={photo.metadata.title} description={photo.metadata.description} setSelectedPicture={setSelectedPicture} />
+              <Picture metadata={photo.metadata} setSelectedPicture={setSelectedPicture} />
             </div>
           )
         })}      

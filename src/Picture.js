@@ -18,9 +18,9 @@ function Picture(props) {
 						<div className="absolute p-1 mt-1 mr-1 right-0 bg-gray-100 rounded-full shadow-lg dark:darkmode-picture transition-colors duration-300">
 							<LoopIcon className={"cursor-pointer svg-block hover:animate-spin dark:text-gray-100 transition-colors duration-300" + (rotatedPicture ? " hidden" : "")} onClick={() => setRotatedPicture(!rotatedPicture)} />
 						</div>
-						<img alt={props.label} className='w-full h-full rounded-t-lg' src={props.metadata.image.url} onClick={() => props.setSelectedPicture({ url: props.metadata.image.url, label: props.metadata.label })} />
+						<img alt={props.label} className='w-full h-full rounded-t-lg' src={props.metadata.image.url} onClick={() => props.setSelectedPicture({ url: props.metadata.image.url, label: props.metadata.title })} />
 						<div className='pt-1 h-16'>
-							<p className='text-xl sm:px-2 font-poppins dark:text-gray-100 transition-colors duration-300 '><b>{props.metadata.date}.</b> {props.metadata.label}</p>
+							<p className='text-xl sm:px-2 font-poppins dark:text-gray-100 transition-colors duration-300 '><b>{props.metadata.date}.</b> {props.metadata.title}</p>
 						</div>
 				</div>
 				<div className="picture-back rounded-lg shadow-lg w-full h-full top-0 absolute grid place-content-center">
