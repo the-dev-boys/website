@@ -25,8 +25,7 @@ function Content() {
       <Fragment>
         <main className="absolute h-screen w-screen top-0">
           <Loader /> 
-        </main>
-        
+        </main>        
       </Fragment>  
     );
   }
