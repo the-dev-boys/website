@@ -43,11 +43,7 @@ div.picture-front , div.picture-back  {
   display: block !important;
 }
 
-
-
-
-
-
+/*loading animation css*/
 .typing {
   position: relative;	
   padding: 2px;
@@ -59,7 +55,7 @@ div.picture-front , div.picture-back  {
   width: 100%;
   background: #fff;
   color: #bd876d;
-  animation: typing 3s steps(10) forwards,
+  animation: typing 1.5s steps(10) forwards,
     caret 1s infinite;
 }
 
