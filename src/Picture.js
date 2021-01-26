@@ -16,7 +16,7 @@ function Picture(props) {
 			<div style={styles} className="picture-inner shadow-lg relative w-full h-full rounded-lg dark:darkmode-picture transition-colors duration-300">
 				<div className={"picture-front w-full h-full" + (rotatedPicture ? " pointer-events-none" : "")} >
 						<div className="absolute p-1 mt-1 mr-1 right-0 bg-gray-100 rounded-full shadow-lg dark:darkmode-picture transition-colors duration-300">
-							<LoopIcon className={"cursor-pointer svg-block hover:animate-spin dark:text-gray-100 transition-colors duration-300" + (rotatedPicture ? " hidden" : "")} onClick={() => setRotatedPicture(!rotatedPicture)} />
+							<LoopIcon className="cursor-pointer svg-block hover:animate-spin dark:text-gray-100 transition-colors duration-300" onClick={() => setRotatedPicture(!rotatedPicture)} />
 						</div>
 						<img alt={props.label} className='w-full h-full rounded-t-lg' src={props.metadata.image.url} onClick={() => props.setSelectedPicture({ url: props.metadata.image.url, label: props.metadata.title })} />
 						<div className='pt-1 h-16'>

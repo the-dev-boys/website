@@ -3,9 +3,9 @@ import React from "react";
 function Loader() {
 
   return (
-    <div className="w-full h-full grid place-content-center font-poppins">
+    <div className="w-full h-full flex items-center place-content-center">
       <div>
-        <p className="text-4xl typewriter">Loading...</p>        
+        <p className="p-style typing dark:text-gray-100">Loading...</p>        
       </div>
     </div>
   )

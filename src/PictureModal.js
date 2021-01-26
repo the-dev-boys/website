@@ -21,7 +21,7 @@ function PictureModal(props) {
   })
 
   return (
-    <div className="flex justify-center items-center fixed z-50 inset-0 overflow-y-auto translucent overflow-hidden" id="mainModal">
+    <div className="flex justify-center items-center fixed z-50 inset-0 overflow-y-auto translucent overflow-hidden w-full" id="mainModal">
       <div className="text-center md:p-10">
         <div data-aos="zoom-out" data-aos-duration="700" className="fixed inset-0" onClick={closeModal} aria-hidden="true">
           <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
