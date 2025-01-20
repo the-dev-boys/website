@@ -16,7 +16,7 @@ function Content(props) {
       {props.pictures.map((photo, i) => {
           return (
             <div className='h-full place-self-center' key={i}>
-              <Picture metadata={photo.metadata} setSelectedPicture={setSelectedPicture} />
+              <Picture photo={photo} setSelectedPicture={setSelectedPicture} />
             </div>
           )
         })}      
